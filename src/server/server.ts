@@ -1,4 +1,5 @@
 import express, { Application } from 'express';
+import cors from 'cors';
 require('./config/config');
 
 export default class Server {
@@ -8,6 +9,7 @@ export default class Server {
   constructor(port: number) {
     this.port = port;
     this.app = express();
+    this.app.use(cors());
     this.app.use(express.json());
   }
 
